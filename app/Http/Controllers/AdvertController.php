@@ -39,7 +39,7 @@ class AdvertController extends Controller
 
         Advert::create($formFields);
 
-        return redirect('/')->with('message', 'Advert created, please wait for confirmation');
+        return back()->with('message', 'Advert created, please wait for confirmation');
     }
 
     // approve and advert
@@ -63,7 +63,7 @@ class AdvertController extends Controller
         }
 
         $advert->delete();
-        return redirect('/')->with('message', 'Advert deleted succesfully');
+        return back()->with('message', 'Advert deleted succesfully');
     }
 
     // manage a adverts

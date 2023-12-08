@@ -54,7 +54,7 @@
                     Post Advert
                 </button>
 
-                <a href="/" class="text-black ml-4"> Go Back </a>
+                <a href="{{ url()->previous() }}" class="text-black ml-4"> Go Back </a>
             </div>
         </form>
     </x-card>

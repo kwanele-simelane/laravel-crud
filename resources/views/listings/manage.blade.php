@@ -4,7 +4,8 @@
             <h1 class="text-lg sm:text-3xl text-left sm:text-center font-bold my-6 capitalize">
                 Manage Listings
             </h1>
-            <a class="block bg-secondary text-sm text-white rounded-sm py-2 px-2 sm:px-4 hover:bg-text_dark" href="/advert/manage">My Adverts</a>
+            <a class="block bg-secondary text-sm text-white rounded-sm py-2 px-2 sm:px-4 hover:bg-text_dark"
+                href="/advert/manage">My Adverts</a>
             {{-- <a class="block bg-secondary text-white rounded py-2 px-4 hover:bg-text_dark" href="/adverts/all">Show All</a> --}}
         </header>
 

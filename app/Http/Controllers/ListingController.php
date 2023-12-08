@@ -7,8 +7,6 @@ use App\Models\Advert;
 use App\Models\Listing;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image as ResizeImage;
-use Intervention\Image\Image;
 
 class ListingController extends Controller
 {
@@ -18,6 +16,13 @@ class ListingController extends Controller
         return view('listings.index', [
             'listings' => Listing::with('products')->latest()->filter(request(['tag', 'search']))->simplePaginate(10),
             'adverts' => Advert::inRandomOrder()->filter()->get()
+        ]);
+    }
+
+    public function show_all()
+    {
+        return view('listings.all', [
+            'listings' => Listing::latest()->get()
         ]);
     }
 
@@ -163,7 +168,7 @@ class ListingController extends Controller
         }
 
         $listing->delete();
-        return redirect('/')->with('message', 'Listing deleted succesfully');
+        return back()->with('message', 'Listing deleted succesfully');
     }
 
     // manage listings
