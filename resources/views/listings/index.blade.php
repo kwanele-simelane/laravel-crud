@@ -21,7 +21,12 @@
     @include('partials._search')
 
     <div class="mx-4 md:mx-12">
-        <h2 class="mt-4 md:mt-8 capitalize text-lg md:-2xl">financial services providers</h2>
+        <div class="flex justify-between items-center my-2 sm:mt-8">
+            <h2 class="capitalize text-lg md:-2xl">financial services providers</h2>
+            <a class="bg-secondary text-text_light px-2 py-1 rounded-sm" href="{{ request()->url() }}"><i
+                    class="fa-solid fa-sliders mr-2"></i>Clear Filters</a>
+        </div>
+
         <hr class="h-px mb-8 bg-gray-50 border-0 dark:bg-gray-300">
     </div>
 
@@ -59,7 +64,8 @@
                 @endunless
             </div>
         </main>
-        <div class="w-full h-4/5 xl:w-4/12 sm:w-4/12 border border-gray-200 bg-gray-50 p-1 sm:p-4 rounded gap-3 overflow-y-scroll">
+        <div
+            class="w-full h-4/5 xl:w-4/12 sm:w-4/12 border border-gray-200 bg-gray-50 p-1 sm:p-4 rounded gap-3 overflow-y-scroll">
             <div class="fb-page custom mb-4" data-href="https://www.facebook.com/TheBlllboard" data-tabs="timeline"
                 data-width="" data-height="" data-small-header="true" data-adapt-container-width="true"
                 data-hide-cover="true" data-show-facepile="false" data-hide-cta="true">

@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    public $fillable =[
+    public $fillable = [
         'listing_id',
         'loan_type',
         'loan_name',
@@ -18,7 +18,8 @@ class Product extends Model
     ];
 
     // create a relationship to the listing
-    public function listing(){
+    public function listing()
+    {
         return $this->belongsTo(Listing::class, 'listing_id');
     }
 }

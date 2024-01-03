@@ -26,14 +26,15 @@ class Listing extends Model
 
     public function scopeFilter($query, array $filters)
     {
-        // $query->join('products', 'listings.id', '=', 'products.listing_id');
-
         if ($filters['category'] ?? false) {
             $query->where('category', 'like', '%' . request('category') . '%');
         }
 
         if ($filters['search'] ?? false) {
-            $query->where('category', 'like', '%' . request('search') . '%')
+            $query->whereHas('products', function ($query) {
+                $query->where('loan_name', 'like', '%' . request('search') . '%')
+                    ->orWhere('loan_type', 'like', '%' . request('search') . '%');
+            })->orWhere('category', 'like', '%' . request('search') . '%')
                 ->orWhere('description', 'like', '%' . request('search') . '%')
                 ->orWhere('company', 'like', '%' . request('search') . '%')
                 ->orWhere('location', 'like', '%' . request('search') . '%');

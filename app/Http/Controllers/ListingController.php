@@ -14,7 +14,7 @@ class ListingController extends Controller
     public function index()
     {
         return view('listings.index', [
-            'listings' => Listing::with('products')->latest()->filter(request(['tag', 'search']))->simplePaginate(10),
+            'listings' => Listing::with('products')->latest()->filter(request(['category', 'search']))->simplePaginate(10),
             'adverts' => Advert::inRandomOrder()->filter()->get()
         ]);
     }
@@ -75,8 +75,6 @@ class ListingController extends Controller
 
         // move the logo file to the 'logos' directory, if file upload exists
         if ($request->hasFile('logo')) {
-            // ResizeImage::make($request->file('logo'))->resize(100, 100)->store('logos', 'public');
-            // $formFields['logo'] = new Image();
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
